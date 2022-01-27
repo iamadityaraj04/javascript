@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1{
+            color: blueviolet;
+            padding: 10px;
+            margin-top: 100px;
+            text-align: center;
+        }
+        h2{
+            background-color: beige;
+            color: red;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="title">Hi! I am Aditya.</h1>
+    </div>
+    <div>
+        <h1 class="counter"></h1>
+        <h2 class="followers">Followers</h2>
+    </div>
+
+
+    <script>
+        var counter=document.querySelector(".counter")
+        var followers=document.querySelector(".followers")
+        
+        let count=1;
+        setInterval(() => {
+            if(count<1000){
+                count++;
+                counter.innerHTML=count;
+            }
+        }, 1);
+
+        setTimeout(() => {
+            followers.innerHTML="Followers On Instagram";
+        }, 4000);
+
+
+        //getCoumputed properties
+        console.log(window.getComputedStyle(counter));
+        console.log(window.getComputedStyle(counter).color);// this will give color property in console
+        console.log(window.getComputedStyle(followers).color);// this will give color property in console
+        console.log(window.getComputedStyle(followers).background);
+        console.log(window.getComputedStyle(followers).backgroundColor);// at the time of calling window, every dash seperated variable is changes like (background-color  to  backgroundColor).
+        
+        //we can do it using function
+        const getColor= (selectedEelement)=>{
+            return window.getComputedStyle(selectedEelement).color;
+        }
+
+        console.log(getColor(counter)); 
+        console.log(getColor(followers)); 
+        
+        </script>
+</body>
+</html>
